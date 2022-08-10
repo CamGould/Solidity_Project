@@ -23,43 +23,33 @@ This notebook contains the [Solidity Contract](https://github.com/CamGould/Solid
 This folder contains [screenshots while running the contract](https://github.com/CamGould/Solidity_Project/tree/main/Execution_Results)
 <br>
 ### Project Outline and Instructions
-#### Prepare the Data for Training and Testing
-1. Create a Jupyter Notebook for each RNN.
-2. For the Fear and Greed model, use the FNG values to try and predict the closing price.
-3. For the closing price model, use previous closing prices to try and predict the next closing price. 
-4. Each model will need to use 70% of the data for training and 30% of the data for testing.
-5. Apply a MinMaxScaler to the X and y values to scale the data for the model.
-6. Reshape the X_train and X_test values to fit the model's requirement of samples, time steps, and features.
-
+This project intends to have students work through three sections:
+1. Create a joint savings account
+2. Compile and deploy the contract in the a VM
+    1. *I ran into consistent issues with JavaScript VM - had to use Remix VM*
+3. Interact with the deployed contract
+#### Step One - Create a Joint Savings Account Contract in Solidity 
+<details>
+  <summary>Step One Instructions</summary> 
+  
+  1. From the provided *starter code*, open the Solidity file named *joint_savings.sol* in the **Remix IDE**.
+  2. Define a new contract named *JointSavings*
+  3. Define the following variables in the new contract:
+      1. Two variables of type address payable named *accountOne and accountTwo*
+      2. A variable of type address public named *lastToWithdraw*
+      3. Two variables of type uint public named *lastWithdrawAmount and contractBalance*
+  4. Define a function named *withdraw* that accepts two arguments: amount of type uint and recipient of type payable address. In this function, code the following:
+      1. Define a require statement that checks if recipient is equal to either accountOne or accountTwo. If it isn’t, the require statement returns the “You don't own this account!” text.
+      2. Define a require statement that checks if balance is sufficient for accomplishing the withdrawal operation. If there are insufficient funds, it returns the “Insufficient funds!” text.
+      3. Add an if statement to check if lastToWithdraw is not equal (!=) to recipient. If it’s not equal, set it to the current value of recipient.
+      4. Call the transfer function of the recipient, and pass it the amount to transfer as an argument.
+      5. Set lastWithdrawAmount equal to amount.
+      6. Set the contractBalance variable equal to the balance of the contract by using *address(this).balance* to reflect the new balance of the contract.
+  5. Define a public payable function named deposit. In this function, code the following:
+      1. Set the contractBalance variable equal to the balance of the contract by using *address(this).balance*.
+  6. Define a public function named setAccounts that takes two address payable arguments, named account1 and account2. In the body of the function, set the values of accountOne and accountTwo to account1 and account2, respectively.
+  7. Add a fallback function so that your contract can store ether that’s sent from outside the deposit function.
+  
+</details>
+      
 #### Build and Train LSTM RNNs
-1. In each Jupyter Notebook, create the same custom LSTM RNN architecture. 
-    1. In the first notebook, fit the data using the FNG values. 
-    2. In the second notebook, fit the data using only closing prices.
-
-###  Key Findings and Visuals 
-#### Visual Price Predictions of Each Model:
-***The Model using Closing Price*** - the far better performing model:
-<br>
-![](https://github.com/CamGould/Deep_Learning_using_LSTM/blob/main/Supplemental/Closing_graph.png?raw=true)
-<br>
-<br>
-***The Model using FNG Indicators*** - a poor performing model:
-<br>
-![](https://github.com/CamGould/Deep_Learning_using_LSTM/blob/main/Supplemental/FNG_graph.png?raw=true)
-<br>
-<br>
-
-#### Evaluating the Performance of Each Model
-
-*Which model has a lower loss?*
-<br> 
-The loss value for each epoch in the training and validation stage displays how well the model is behaving after each stage of its optimization. After looking at how the models each performed, it is no suprise that the **Closing Price Model** had a lower loss than the *FNG Model*. The results for eachof these can be found in their notebooks when the model is running the epochs.
-<br>
-<br>
-*Which model tracks the actual values better over time?*
-<br>
-When comparing the two graphs of the outputs of each model it is not hard to tell that the **Closing Price Model** tracked the actual values far better. If the two models were closer, and we could not tell right away from the visuals, I would take the average distance the model's price prediction was off of the actual price to determine this answer.
-<br>
-<br>
-*Which window size works best for the models?*
-In the end I decided to go with a 10-day closing price window. I found that by having a larger window, the model was predicting prices. using smoother data. This in return helped to minimize some of the outliers, or extremes, that were effecting the model's accuracy of predictions.
