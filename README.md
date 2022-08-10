@@ -26,7 +26,6 @@ This folder contains [screenshots while running the contract](https://github.com
 This project intends to have students work through three sections:
 1. Create a joint savings account
 2. Compile and deploy the contract in the a VM
-    1. *I ran into consistent issues with JavaScript VM - had to use Remix VM*
 3. Interact with the deployed contract
 #### Step One - Create a Joint Savings Account Contract in Solidity 
 <details>
@@ -52,4 +51,13 @@ This project intends to have students work through three sections:
   
 </details>
       
-#### Build and Train LSTM RNNs
+#### Step Two - Compile and Deploy the Contract in the VM
+1. Compile your smart contract. If an error occurs, review your code, and make the necessary changes for a successful compilation.
+2. In the Remix IDE, navigate to the “Deploy & Run Transactions” pane, and then make sure that “JavaScript VM” is selected as the environment.
+    1. *I ran into consistent issues with JavaScript VM - had to use Remix VM*
+    2. ![](https://github.com/CamGould/Solidity_Project/blob/main/Execution_Results/Javascript%20Vm%20not%20available.png?raw=true)
+3. Click the Deploy button to deploy your smart contract, and then confirm that it successfully deployed.
+    1. *Here you can see where the dropdown was that the contract depolyed successfully*
+    2. ![](https://github.com/CamGould/Solidity_Project/blob/main/Execution_Results/Contract%20Deployed%20Successfully.png?raw=true)
+
+#### Step Three - Interact with the Deployed Contract
