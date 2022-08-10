@@ -1,10 +1,10 @@
-<h1 align="center">Bitcoin Price Prediction Using FNG and Closing Price Indicators</h1>
-<h2 align="center"> A Deep Learning Project with Long Short-Term Memory Networks</h2>
+<h1 align="center">Sample Blockchain Bank Account Using Solidity and Remix</h1>
+<h2 align="center"> *Joint Savings Account*</h2>
 <h4 align="center"> Created by <em>Cam Gould</em> for the <em>University of Toronto Fintech BootCamp</em> </h4>
 
 <p align="center">
   <img
-    src="https://github.com/CamGould/Deep_Learning_using_LSTM/blob/main/Supplemental/34084Bitcoin-Article-Cover-Image-3-scaled.jpg?raw=true"
+    src="https://blog.cakedefi.com/content/images/2021/07/istockphoto-1226293128-612x612.jpeg"
   >
 </p>
 
