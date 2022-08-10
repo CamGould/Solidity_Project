@@ -61,3 +61,12 @@ This project intends to have students work through three sections:
     2. ![](https://github.com/CamGould/Solidity_Project/blob/main/Execution_Results/Contract%20Deployed%20Successfully.png?raw=true)
 
 #### Step Three - Interact with the Deployed Contract
+1. Use the *setAccounts* function to define the authorized Ethereum address that will be able to withdraw funds from your contract.
+    1. *Here you can see me setting the account addresses to the provided sample accounts* 
+    2. ![](https://github.com/CamGould/Solidity_Project/blob/main/Execution_Results/setAccounts.png?raw=true)
+2. Test the deposit functionality of your smart contract by sending the following amounts of ether, sometimes you have to convert it to wei.
+    1. *Here you can see the specified deposited ammountsin either ether or wei*
+    2. ![](https://github.com/CamGould/Solidity_Project/blob/main/Execution_Results/Deposit%20Amounts.png?raw=true)
+3. Test the withdrawl function by withdrawing money into the two accounts
+    1. *Here is where I made the call to withdrawl to each account. For some reason when I was making the call it was just stuck pending. I think for awhile to debug but could not determine why.*
+    2. ![](https://github.com/CamGould/Solidity_Project/blob/main/Execution_Results/Withdraw%20from%20Accounts.png?raw=true) 
